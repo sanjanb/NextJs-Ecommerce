@@ -10,7 +10,6 @@ import { wixClientServer } from "@/lib/wixClientServer";
 import { Suspense, useContext, useEffect } from "react";
 
 const HomePage = async () => {
-
   // TEST (FETCHING ON THE CLIENT COMPONENT)
 
   // const wixClient = useWixClient()
@@ -24,15 +23,14 @@ const HomePage = async () => {
 
   //   getProducts();
   // }, [wixClient]);
-  
 
   // TEST (FETCHING ON THE SERVER COMPONENT)
 
-  // const wixClient = await wixClientServer();
+  const wixClient = await wixClientServer();
 
-  // const res = await wixClient.products.queryProducts().find();
+  const res = await wixClient.products.queryProducts().find();
 
-  // console.log(res);
+  console.log(res);
 
   return (
     <div className="">
