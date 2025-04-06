@@ -82,7 +82,7 @@ Before you begin, ensure you have the following installed:
 
 4. **Run the development server**
    ```bash
-   npm run dev
+   npm install --legacy-peer-deps
    # or
    yarn dev
    ```
