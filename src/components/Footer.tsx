@@ -15,8 +15,8 @@ const Footer = () => {
             Discover the freshest organic produce, farm-fresh dairy, and
             sustainable products delivered straight to your doorstep.
           </p>
-          <span className="font-semibold">sanjanacharaya1234@gmail.com</span>
-          <span className="font-semibold">+91 9535752673</span>
+          <span className="font-semibold">niranjannshaiva@gmail.com</span>
+          <span className="font-semibold">+91 81235 39252</span>
           <div className="flex gap-6">
             <Image src="/facebook.png" alt="" width={16} height={16} />
             <Image src="/instagram.png" alt="" width={16} height={16} />
