@@ -2,7 +2,7 @@
 
 A modern, full-featured e-commerce platform built with Next.js 14, TypeScript, and Wix as the backend. This project demonstrates how to build a scalable e-commerce solution with a beautiful user interface and robust functionality.
 
-![E-commerce Store](public/screenshot.png)
+![E-commerce Store](Images/Screenshot.png)
 
 ## Features
 
