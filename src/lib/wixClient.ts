@@ -1,11 +1,15 @@
+"use client";
+
 import { OAuthStrategy, createClient } from "@wix/sdk";
 import { collections, products } from "@wix/stores";
-import { orders } from "@wix/ecom";
+import { orders, currentCart } from "@wix/ecom";
 import { members } from '@wix/members';
-import { currentCart } from '@wix/ecom';
 import { redirects } from '@wix/redirects';
+import Cookies from "js-cookie";
 
-export const wixClientServer = async () => {
+export const createWixClient = () => {
+  const refreshToken = JSON.parse(Cookies.get("refreshToken") || "{}");
+
   const wixClient = createClient({
     modules: {
       products,
@@ -18,14 +22,11 @@ export const wixClientServer = async () => {
     auth: OAuthStrategy({
       clientId: process.env.NEXT_PUBLIC_WIX_CLIENT_ID!,
       tokens: {
-        refreshToken: {
-          value: process.env.WIX_REFRESH_TOKEN,
-          expiresAt: 0,
-        },
+        refreshToken,
         accessToken: { value: "", expiresAt: 0 },
       },
     }),
   });
 
   return wixClient;
-};
+}; 

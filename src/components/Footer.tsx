@@ -8,60 +8,70 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between gap-24">
         {/* LEFT */}
         <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
-          <Link href="/">
-            <div className="text-2xl tracking-wide">FTT</div>
+          <Link href="/" className="group">
+            <div className="text-2xl tracking-wide transition-colors duration-300 group-hover:text-FTT">FTT</div>
           </Link>
-          <p>
+          <p className="text-gray-600 leading-relaxed">
             Discover the freshest organic produce, farm-fresh dairy, and
             sustainable products delivered straight to your doorstep.
           </p>
-          <span className="font-semibold">niranjannshaiva@gmail.com</span>
-          <span className="font-semibold">+91 81235 39252</span>
+          <div className="flex flex-col gap-2">
+            <a href="mailto:niranjannshaiva@gmail.com" className="font-semibold text-gray-700 hover:text-FTT transition-colors duration-300">niranjannshaiva@gmail.com</a>
+            <a href="tel:+918123539252" className="font-semibold text-gray-700 hover:text-FTT transition-colors duration-300">+91 81235 39252</a>
+          </div>
           <div className="flex gap-6">
-            <Image src="/facebook.png" alt="" width={16} height={16} />
-            <Image src="/instagram.png" alt="" width={16} height={16} />
-            <Image src="/youtube.png" alt="" width={16} height={16} />
-            <Image src="/pinterest.png" alt="" width={16} height={16} />
-            <Image src="/x.png" alt="" width={16} height={16} />
+            {['facebook', 'instagram', 'youtube', 'pinterest', 'x'].map((social) => (
+              <a
+                key={social}
+                href="#"
+                className="hover:scale-110 transition-transform duration-300"
+              >
+                <Image
+                  src={`/${social}.png`}
+                  alt={social}
+                  width={16}
+                  height={16}
+                  className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </a>
+            ))}
           </div>
         </div>
         {/* CENTER */}
-        <div className="hidden lg:flex justify-between w-1/2">
-          <div className="flex flex-col justify-between">
-            <h1 className="font-medium text-lg">COMPANY</h1>
-            <div className="flex flex-col gap-6">
-              <Link href="">About Us</Link>
-              <Link href="">Careers</Link>
-              <Link href="">Affiliates</Link>
-              <Link href="">Blog</Link>
-              <Link href="">Contact Us</Link>
+        <div className="flex flex-col md:flex-row gap-12">
+          <div className="flex flex-col gap-6">
+            <h1 className="font-medium text-lg text-gray-800">COMPANY</h1>
+            <div className="flex flex-col gap-4">
+              <Link href="/about" className="text-gray-600 hover:text-FTT transition-colors duration-300">About Us</Link>
+              <Link href="/contact" className="text-gray-600 hover:text-FTT transition-colors duration-300">Contact Us</Link>
+              <Link href="/faq" className="text-gray-600 hover:text-FTT transition-colors duration-300">FAQ</Link>
+              <Link href="/privacy" className="text-gray-600 hover:text-FTT transition-colors duration-300">Privacy Policy</Link>
             </div>
           </div>
-          <div className="flex flex-col justify-between">
-            <h1 className="font-medium text-lg">SHOP</h1>
-            <div className="flex flex-col gap-6">
-              <Link href="">New Arrivals</Link>
-              <Link href="">Accessories</Link>
-              <Link href="">Men</Link>
-              <Link href="">Women</Link>
-              <Link href="">All Products</Link>
+          <div className="flex flex-col gap-6">
+            <h1 className="font-medium text-lg text-gray-800">SHOP</h1>
+            <div className="flex flex-col gap-4">
+              <Link href="/" className="text-gray-600 hover:text-FTT transition-colors duration-300">New Arrivals</Link>
+              <Link href="/" className="text-gray-600 hover:text-FTT transition-colors duration-300">Accessories</Link>
+              <Link href="/" className="text-gray-600 hover:text-FTT transition-colors duration-300">Men</Link>
+              <Link href="/" className="text-gray-600 hover:text-FTT transition-colors duration-300">Women</Link>
+              <Link href="/" className="text-gray-600 hover:text-FTT transition-colors duration-300">All Products</Link>
             </div>
           </div>
-          <div className="flex flex-col justify-between">
-            <h1 className="font-medium text-lg">HELP</h1>
-            <div className="flex flex-col gap-6">
-              <Link href="">Customer Service</Link>
-              <Link href="">My Account</Link>
-              <Link href="">Find a Store</Link>
-              <Link href="">Legal & Privacy</Link>
-              <Link href="">Gift Card</Link>
+          <div className="flex flex-col gap-6">
+            <h1 className="font-medium text-lg text-gray-800">HELP</h1>
+            <div className="flex flex-col gap-4">
+              <Link href="/shipping" className="text-gray-600 hover:text-FTT transition-colors duration-300">Shipping Information</Link>
+              <Link href="/returns" className="text-gray-600 hover:text-FTT transition-colors duration-300">Returns & Refunds</Link>
+              <Link href="/faq" className="text-gray-600 hover:text-FTT transition-colors duration-300">Customer Service</Link>
+              <Link href="/contact" className="text-gray-600 hover:text-FTT transition-colors duration-300">Find a Store</Link>
             </div>
           </div>
         </div>
         {/* RIGHT */}
-        <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
-          <h1 className="font-medium text-lg">SUBSCRIBE</h1>
-          <p>
+        <div className="flex flex-col gap-8">
+          <h1 className="font-medium text-lg text-gray-800">SUBSCRIBE</h1>
+          <p className="text-gray-600">
             Be the first to get the latest news about spices, veggies, and much
             more!
           </p>
@@ -69,31 +79,40 @@ const Footer = () => {
             <input
               type="text"
               placeholder="Email address"
-              className="p-4 w-3/4"
+              className="p-4 w-3/4 focus:outline-none focus:ring-2 focus:ring-FTT/50"
             />
-            <button className="w-1/4 bg-FTT text-white">JOIN</button>
+            <button className="w-1/4 bg-FTT text-white hover:bg-FTT/90 transition-colors duration-300">JOIN</button>
           </div>
-          <span className="font-semibold">Secure Payments</span>
+          <span className="font-semibold text-gray-800">Secure Payments</span>
           <div className="flex justify-between">
-            <Image src="/discover.png" alt="" width={40} height={20} />
-            <Image src="/skrill.png" alt="" width={40} height={20} />
-            <Image src="/paypal.png" alt="" width={40} height={20} />
-            <Image src="/mastercard.png" alt="" width={40} height={20} />
-            <Image src="/visa.png" alt="" width={40} height={20} />
+            {['discover', 'skrill', 'paypal', 'mastercard', 'visa'].map((payment) => (
+              <div
+                key={payment}
+                className="hover:scale-110 transition-transform duration-300"
+              >
+                <Image
+                  src={`/${payment}.png`}
+                  alt={payment}
+                  width={40}
+                  height={20}
+                  className="opacity-80 hover:opacity-100 transition-opacity duration-300"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
       {/* BOTTOM */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16">
-        <div className="">© 2024 FarmToTable Shop</div>
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16 pt-8 border-t border-gray-200">
+        <div className="text-gray-600">© 2024 FarmToTable Shop</div>
         <div className="flex flex-col gap-8 md:flex-row">
-          <div className="">
+          <div className="flex items-center">
             <span className="text-gray-500 mr-4">Language</span>
-            <span className="font-medium">India | English</span>
+            <span className="font-medium text-gray-700">India | English</span>
           </div>
-          <div className="">
+          <div className="flex items-center">
             <span className="text-gray-500 mr-4">Currency</span>
-            <span className="font-medium">₹ Rupees </span>
+            <span className="font-medium text-gray-700">₹ Rupees</span>
           </div>
         </div>
       </div>
